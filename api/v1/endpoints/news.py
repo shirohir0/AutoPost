@@ -3,8 +3,6 @@ from services.news import news_client
 
 router = APIRouter(prefix="/news", tags=["News"])
 
-NEWSMESH_BASE = "https://api.newsmesh.co/v1"
-
 @router.get("/")
 def get_news():
     try:
@@ -15,6 +13,5 @@ def get_news():
 
     return {
         "status": "ok",
-        "total": len(data),
-        "data": data  # лучше назвать data, а не news, чтобы совпадало с продакшен-форматом
+        "data": data
     }
